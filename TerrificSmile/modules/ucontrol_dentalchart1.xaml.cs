@@ -20,7 +20,7 @@ namespace TerrificSmile.modules
     /// </summary>
     public partial class ucontrol_dentalchart1 : UserControl
     {
-        int a;
+        int b;
         public ucontrol_dentalchart1()
         {
             InitializeComponent();
