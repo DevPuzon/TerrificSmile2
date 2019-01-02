@@ -37,6 +37,14 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+                    <Grid Grid.RowSpan="2" Grid.ColumnSpan="2">
+                        <Rectangle Height="10" Width="520" HorizontalAlignment="Center" Fill="#3E3E42">
+                            <Rectangle.LayoutTransform>
+                                <RotateTransform Angle="90"/>
+                            </Rectangle.LayoutTransform>
+                        </Rectangle>
+                        <Rectangle Height="10" Width="700" HorizontalAlignment="Center" Fill="#3E3E42"/>
+                    </Grid>
                     <Grid Grid.Row="0">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
