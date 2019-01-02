@@ -1,0 +1,79 @@
+﻿<Window x:Class="TerrificSmile.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TerrificSmile"
+        mc:Ignorable="d"  
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        Title="MainWindow" x:Name="main" Height="700" Width="1300" WindowStartupLocation="CenterScreen" Background="#E0E0E0" WindowStyle="None" ResizeMode="NoResize" WindowState="Maximized">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Name="grid_drag" Grid.Row="0" VerticalAlignment="Top" Background="#414B54" MouseLeftButtonDown="grid_drag_MouseLeftButtonDown">
+            <WrapPanel HorizontalAlignment="Right">
+                <Button Name="bttn_windowminimize" Padding="5" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#CCD0D9" Click="bttn_windowminimize_Click">
+                    <iconPacks:Material Kind="WindowMinimize"/>
+                </Button>
+                <Button Name="bttn_windowmaximize" Padding="5" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#CCD0D9" Click="bttn_windowmaximize_Click">
+                    <iconPacks:Material Kind="WindowMaximize"/>
+                </Button>
+                <Button Name="bttn_windowclose" Padding="5"  Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#CCD0D9" Click="bttn_windowclose_Click">
+                    <iconPacks:Material Kind="WindowClose"/>
+                </Button>
+            </WrapPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+            <controls:MetroContentControl Grid.Row="0" Name="ucontrol_main"/>
+            <Grid Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="92"/>
+                    </Grid.RowDefinitions>
+                    <Rectangle Grid.Row="0" Margin="8,0,8,0" Height="5" Fill="#AAB2BD" VerticalAlignment="Top" RadiusY="4" RadiusX="4"/>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Name="bttn_dentalrecord" Height="auto" Width="150" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="bttn_dentalrecord_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial Kind="Account" VerticalAlignment="Center"/>
+                                <TextBlock MaxWidth="100" TextWrapping="Wrap" Text="Dental Record Chart"  Margin="8,0,0,0"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Name="bttn_report" Height="auto" Width="150" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="bttn_report_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial Kind="FileDocument"/>
+                                <TextBlock Text="Report" Margin="8,0,0,0"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Name="bttn_admin" Height="auto" Width="150" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="bttn_admin_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial Kind="Security"/>
+                                <TextBlock Text="Admin " Margin="8,0,0,0"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Name="bttn_devoption" Height="auto" Width="150" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="bttn_devoption_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial Kind="Settings" VerticalAlignment="Center"/>
+                                <TextBlock MaxWidth="100" TextWrapping="Wrap" Text="Developer option" Margin="8,0,0,0"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Name="bttn_about" Height="auto" Width="150" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="bttn_about_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial Kind="Message"/>
+                                <TextBlock Text="About" Margin="8,0,0,0"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
