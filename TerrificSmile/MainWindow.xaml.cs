@@ -25,8 +25,9 @@ namespace TerrificSmile
         public MainWindow()
         {
             InitializeComponent();
+            ucontrol_dentalchart1 h = new ucontrol_dentalchart1();
+            ucontrol_main.Content = h;
         }
-
         private void bttn_windowclose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();

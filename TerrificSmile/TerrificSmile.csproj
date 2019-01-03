@@ -105,6 +105,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="modules\Codes\database-connection.cs" />
+    <Compile Include="modules\Codes\dentalrecord.cs" />
     <Compile Include="modules\ucontrol_dentalchart1.xaml.cs">
       <DependentUpon>ucontrol_dentalchart1.xaml</DependentUpon>
     </Compile>
@@ -142,6 +144,7 @@
   <ItemGroup>
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
