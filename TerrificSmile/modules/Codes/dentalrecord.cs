@@ -16,6 +16,7 @@ namespace TerrificSmile.modules.Codes
         {
             teeth_source = new ObservableCollection<teethsource>();
         }
+
         public ObservableCollection<teethsource> teeth_source;
 
         public class teethsource
@@ -61,22 +62,6 @@ namespace TerrificSmile.modules.Codes
             {
                 MessageBox.Show(ex.Message);
             }
-            
-            //if (teeth_source.Any(x => x.teeth_id.Contains(teethid)))
-            //{
-            //    //teeth_source.Remove(new teethsource { teeth_id = teethid });
-            //    //int a = teeth_source.IndexOf(new teethsource { teeth_id = teethid });
-            //    //MessageBox.Show(a.ToString());
-            //    foreach (teethsource item in teeth_source)
-            //    {
-            //        item.teeth_id.Remove(1, 1);
-            //        MessageBox.Show("");
-            //    } 
-            //}
-            //else
-            //{
-            //    teeth_source.Add(new teethsource { teeth_id = teethid});
-            //}
         }
     }
 }

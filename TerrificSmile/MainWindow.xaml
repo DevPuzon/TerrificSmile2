@@ -26,6 +26,10 @@
                     <iconPacks:Material Kind="WindowClose"/>
                 </Button>
             </WrapPanel>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="Terrific Smile v.01" Foreground="#EEEEEE"  Margin="10,0,0,0"/>
+                <TextBlock Name="txt_datetime" Foreground="#EEEEEE" Margin="20,0,0,0"/>
+            </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>

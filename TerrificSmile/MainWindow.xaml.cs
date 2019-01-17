@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using TerrificSmile.modules;
 
 namespace TerrificSmile
@@ -27,7 +30,20 @@ namespace TerrificSmile
             InitializeComponent();
             ucontrol_dentalchart1 h = new ucontrol_dentalchart1();
             ucontrol_main.Content = h;
+            dateTime();
         }
+        public static string date, time;
+        public void dateTime()
+        {
+            DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+               
+                date = DateTime.Now.ToString("MM/dd/yyyy");
+                time = DateTime.Now.ToString(" hh: mm: ss");
+                this.txt_datetime.Text = date + "\t" +time;
+            }, this.Dispatcher);
+        }
+
         private void bttn_windowclose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -66,12 +82,14 @@ namespace TerrificSmile
 
         private void bttn_report_Click(object sender, RoutedEventArgs e)
         {
-
+            ucontrol_report h = new ucontrol_report();
+            ucontrol_main.Content = h;
         }
 
         private void bttn_admin_Click(object sender, RoutedEventArgs e)
         {
-
+            ucontrol_admin h = new ucontrol_admin();
+            ucontrol_main.Content = h;
         }
 
         private void bttn_devoption_Click(object sender, RoutedEventArgs e)

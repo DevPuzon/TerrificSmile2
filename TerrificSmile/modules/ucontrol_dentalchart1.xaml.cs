@@ -27,7 +27,10 @@ namespace TerrificSmile.modules
             refresh();
             Listview_teethStatus.ItemsSource = th.teeth_source;
         }
+        dentalInformation di = new dentalInformation();
         database_connection dc = new database_connection();
+        dentalrecord th = new dentalrecord();
+        report r = new report();
         private void refresh()
         {
             dc = new database_connection();
@@ -35,7 +38,6 @@ namespace TerrificSmile.modules
             query = $@"delete from tbl_teethexam";
             dc.Connection2(query);
         }
-        dentalrecord th = new dentalrecord();
         #region 1st Stackpanel 
         bool bool55;
         bool bool54;
@@ -126,8 +128,10 @@ namespace TerrificSmile.modules
         }
 
         #endregion
-        private void bttn_save_Click(object sender, RoutedEventArgs e)
+
+        private void bttn_done_Click(object sender, RoutedEventArgs e)
         {
+            r.receipt();
             dentalrecord.teethsource currentteeth;
             int ctr, total;
             total = th.teeth_source.Count;
@@ -142,11 +146,29 @@ namespace TerrificSmile.modules
                     dc.Connection2(query);
                 }
             }
-            //foreach (dentalrecord.teethsource coll in th.teeth_source)
-            //{
+            grid_receipt.Visibility = Visibility.Visible;
+            richbox_receiptD.Document = report.mcFlowDoc;
+        }
+        #region Receip
+        private void bttn_cancel_Click(object sender, RoutedEventArgs e)
+        {
+            grid_receipt.Visibility = Visibility.Collapsed;
+        }
+        int change;
+        private void bttn_print_Click(object sender, RoutedEventArgs e)
+        {
+            di = new dentalInformation();
+            di._save(textbox_transactionId.Text, textbox_patientId.Text, textbox_name.Text, 
+                    textbox_age.Text, textbox_address.Text, textbox_phoneno.Text, combox_gender.Text, 
+                    combox_patientassitant.Text,textbox_reservationId.Text,datepicker_dateReserved.Text
+                    ,textbox_payment.Text,textbox_amount.Text,textbox_change.Text);
+        }
+        #endregion
 
-            //    MessageBox.Show(coll.teeth_id.ToString());
-            //}
+        private void textbox_amount_LostFocus(object sender, RoutedEventArgs e)
+        {
+            change = int.Parse(textbox_payment.Text) - int.Parse(textbox_amount.Text);
+            textbox_change.Text = change.ToString();
         }
     }
 }
