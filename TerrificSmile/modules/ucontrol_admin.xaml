@@ -14,13 +14,13 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <StackPanel Orientation="Horizontal" Background="White" Margin="10">
-                <Button Margin="5" Foreground="White" Background="#E91E63" Style="{DynamicResource MaterialDesignFlatButton}" >
+                <Button Name="bttn_delete" Margin="5" Foreground="White" Background="#E91E63" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_delete_Click">
                     <StackPanel Orientation="Horizontal">
                         <iconPacks:PackIconMaterial Kind="Delete"/>
                         <TextBlock Text="Delete" Margin="10,0,0,0"/>
                     </StackPanel>
                 </Button>
-                <Button Margin="5" Foreground="White" Background="#2196F3" Style="{DynamicResource MaterialDesignFlatButton}" >
+                <Button Name="bttn_update" Margin="5" Foreground="White" Background="#2196F3" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_update_Click">
                     <StackPanel Orientation="Horizontal">
                         <iconPacks:PackIconMaterial Kind="Update"/>
                         <TextBlock Text="Update" Margin="10,0,0,0"/>
@@ -29,7 +29,7 @@
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="10">
                 <TextBox Name="textbox_searchid" materialDesign:HintAssist.Hint="Search" materialDesign:HintAssist.IsFloating="True" Foreground="Black" Width="200" Margin="5"/>
-                <Button ToolTip="Search" Margin="5" Foreground="White" Style="{DynamicResource MaterialDesignFloatingActionButton}" >
+                <Button Name="btnn_search" ToolTip="Search" Margin="5" Foreground="White" Style="{DynamicResource MaterialDesignFloatingActionButton}" Click="Btnn_search_Click">
                     <iconPacks:PackIconMaterial Kind="Magnify"/>
                 </Button>
             </StackPanel>
@@ -50,15 +50,15 @@
                         </StackPanel>
                         <StackPanel Margin="10,0,0,0">
                             <ScrollViewer HorizontalScrollBarVisibility="Visible" MaxHeight="470" VerticalAlignment="Top">
-                                <DataGrid Name="DataGrid_output" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top" MaxHeight="480" >
+                                <DataGrid Name="DataGrid_patientinfo" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top" MaxHeight="480" SelectionChanged="DataGrid_patientinfo_SelectionChanged">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Patient Id" Binding="{Binding engLanguage}" IsReadOnly="True" Width="Auto"/>
-                                        <DataGridTextColumn Header="Name" Binding="{Binding tagLanguage}" IsReadOnly="True" Width="Auto"/>
-                                        <DataGridTextColumn Header="Age" Binding="{Binding pOfSpeech}" IsReadOnly="True" Width="Auto"/>
-                                        <DataGridTextColumn Header="Address" Binding="{Binding pronounce}" IsReadOnly="True" Width="Auto"/>
-                                        <DataGridTextColumn Header="Phone Number" Binding="{Binding meaning}" IsReadOnly="True" Width="Auto"/>
-                                        <DataGridTextColumn Header="Gender" Binding="{Binding example}" IsReadOnly="True" Width="Auto"/>
-                                        <DataGridTextColumn Header="Patient Assitant" Binding="{Binding example}" IsReadOnly="True" Width="Auto"/>
+                                        <DataGridTextColumn Header="Patient Id" Binding="{Binding patientId}" IsReadOnly="True" Width="Auto"/>
+                                        <DataGridTextColumn Header="Name" Binding="{Binding name}" IsReadOnly="True" Width="Auto"/>
+                                        <DataGridTextColumn Header="Age" Binding="{Binding age}" IsReadOnly="True" Width="Auto"/>
+                                        <DataGridTextColumn Header="Address" Binding="{Binding address}" IsReadOnly="True" Width="Auto"/>
+                                        <DataGridTextColumn Header="Phone Number" Binding="{Binding phoneNumber}" IsReadOnly="True" Width="Auto"/>
+                                        <DataGridTextColumn Header="Gender" Binding="{Binding gender}" IsReadOnly="True" Width="Auto"/>
+                                        <DataGridTextColumn Header="Patient Assitant" Binding="{Binding patientAssistant}" IsReadOnly="True" Width="Auto"/>
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </ScrollViewer>
@@ -73,10 +73,10 @@
                         <ScrollViewer HorizontalScrollBarVisibility="Visible" Margin="10,10,0,0" MaxHeight="400">
                             <DataGrid Name="DataGrid_reservation" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top" >
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Reservation Id" Binding="{Binding pOfSpeech}" IsReadOnly="True" Width="Auto"/>
-                                    <DataGridTextColumn Header="Date Reserved" Binding="{Binding pronounce}" IsReadOnly="True" Width="Auto"/>
-                                    <DataGridTextColumn Header="Patient Id" Binding="{Binding engLanguage}" IsReadOnly="True" Width="Auto"/>
-                                    <DataGridTextColumn Header="Name" Binding="{Binding tagLanguage}" IsReadOnly="True" Width="Auto"/>
+                                    <DataGridTextColumn Header="Reservation Id" Binding="{Binding reservationId}" IsReadOnly="True" Width="Auto"/>
+                                    <DataGridTextColumn Header="Date Reserved" Binding="{Binding dateReserved}" IsReadOnly="True" Width="Auto"/>
+                                    <DataGridTextColumn Header="Patient Id" Binding="{Binding patientId}" IsReadOnly="True" Width="Auto"/>
+                                    <DataGridTextColumn Header="Name" Binding="{Binding name}" IsReadOnly="True" Width="Auto"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </ScrollViewer>
@@ -86,14 +86,14 @@
                         <ScrollViewer HorizontalScrollBarVisibility="Visible" MaxHeight="460">
                             <DataGrid Name="DataGrid_transaction" Margin="10,0,0,0" HorizontalAlignment="Right" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top" >
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Transaction Id" Binding="{Binding tagLanguage}" IsReadOnly="True" Width="Auto"/>
-                                    <DataGridTextColumn Header="Patient Id" Binding="{Binding engLanguage}" IsReadOnly="True" Width="Auto"/>
-                                    <DataGridTextColumn Header="Name" Binding="{Binding pOfSpeech}" IsReadOnly="True" Width="Auto"/>
-                                    <DataGridTextColumn Header="Date and time" Binding="{Binding pronounce}" IsReadOnly="True" Width="Auto"/>
-                                    <DataGridTextColumn Header="Patient Assitant" Binding="{Binding example}" IsReadOnly="True" Width="Auto"/>
-                                    <DataGridTextColumn Header="Payment" Binding="{Binding pOfSpeech}" IsReadOnly="True" Width="Auto"/>
-                                    <DataGridTextColumn Header="Amount" Binding="{Binding pronounce}" IsReadOnly="True" Width="Auto"/>
-                                    <DataGridTextColumn Header="Change" Binding="{Binding example}" IsReadOnly="True" Width="Auto"/>
+                                    <DataGridTextColumn Header="Transaction Id" Binding="{Binding transactionId}" IsReadOnly="True" Width="Auto"/>
+                                    <DataGridTextColumn Header="Patient Id" Binding="{Binding patientId}" IsReadOnly="True" Width="Auto"/>
+                                    <DataGridTextColumn Header="Name" Binding="{Binding name}" IsReadOnly="True" Width="Auto"/>
+                                    <DataGridTextColumn Header="Date and time" Binding="{Binding dateCurrent}" IsReadOnly="True" Width="Auto"/>
+                                    <DataGridTextColumn Header="Patient Assitant" Binding="{Binding patientAssistant}" IsReadOnly="True" Width="Auto"/>
+                                    <DataGridTextColumn Header="Payment" Binding="{Binding payment}" IsReadOnly="True" Width="Auto"/>
+                                    <DataGridTextColumn Header="Amount" Binding="{Binding amount}" IsReadOnly="True" Width="Auto"/>
+                                    <DataGridTextColumn Header="Change" Binding="{Binding change}" IsReadOnly="True" Width="Auto"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </ScrollViewer>
