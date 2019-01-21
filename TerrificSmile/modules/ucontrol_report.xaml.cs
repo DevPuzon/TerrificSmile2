@@ -39,7 +39,5 @@ namespace TerrificSmile.modules
             di._clear();
             di._search(txtbox_search.Text);
         }
-
-
     }
 }

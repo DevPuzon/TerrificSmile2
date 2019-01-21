@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +25,11 @@ namespace TerrificSmile.modules
         {
             InitializeComponent();
             _datasource();
+        }
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
         enum status
         {
@@ -74,9 +80,54 @@ namespace TerrificSmile.modules
             textbox_address.Text = selecteditem.address;
             textbox_gender.Text = selecteditem.gender;
             combox_patientassitant.Text = selecteditem.patientAssistant;
+            textbox_reservationid.Text = selecteditem.reservationId;
+            datepick_reserveDate.Text = selecteditem.dateReserved;
 
             _status = status.select;
         }
+
+        private void DataGrid_reservation_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DataGrid_reservation.SelectedItem == null) return;
+            var selecteditem = DataGrid_reservation.SelectedItem as dentalInformation.informationSource;
+            textbox_patientId.Text = selecteditem.patientId;
+            textbox_name.Text = selecteditem.name;
+            textbox_age.Text = selecteditem.age;
+            textbox_phoneno.Text = selecteditem.phoneNumber;
+            textbox_address.Text = selecteditem.address;
+            textbox_gender.Text = selecteditem.gender;
+            combox_patientassitant.Text = selecteditem.patientAssistant;
+            textbox_reservationid.Text = selecteditem.reservationId;
+            datepick_reserveDate.Text = selecteditem.dateReserved;
+
+            _status = status.select;
+        }
+
+        private void DataGrid_transaction_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DataGrid_transaction.SelectedItem == null) return;
+            var selecteditem = DataGrid_transaction.SelectedItem as dentalInformation.informationSource;
+            
+            if (selecteditem.patientId != "")
+            {
+                textbox_patientId.Text = selecteditem.patientId;
+                textbox_name.Text = selecteditem.name;
+                textbox_age.Text = selecteditem.age;
+                textbox_phoneno.Text = selecteditem.phoneNumber;
+                textbox_address.Text = selecteditem.address;
+                textbox_gender.Text = selecteditem.gender;
+                combox_patientassitant.Text = selecteditem.patientAssistant;
+                textbox_reservationid.Text = selecteditem.reservationId;
+                datepick_reserveDate.Text = selecteditem.dateReserved;
+            }
+            else
+            {
+                MessageBox.Show("No patient register");
+            }
+
+            _status = status.select;
+        }
+
 
         private void Bttn_update_Click(object sender, RoutedEventArgs e)
         {
@@ -87,17 +138,21 @@ namespace TerrificSmile.modules
                 if (_status == status.select)
                 {
                     query = $@"update tbl_main 
-set col_patientId = {textbox_patientId.Text}
-col_name = '{textbox_name.Text}'
-col_age = {textbox_age.Text}
-col_address = '{textbox_address.Text}'
-col_phoneNumber = {textbox_phoneno.Text}
-col_gender = '{textbox_gender.Text}'
-col_patientAssitant = '{combox_patientassitant.Text}'";
+set col_patientId = '{textbox_patientId.Text}'
+,col_name = '{textbox_name.Text}'
+,col_age = {textbox_age.Text}
+,col_address = '{textbox_address.Text}'
+,col_phoneNumber = {textbox_phoneno.Text}
+,col_gender = '{textbox_gender.Text}'
+,col_patientAssitant = '{combox_patientassitant.Text}'
+,col_dateReserved = '{datepick_reserveDate.Text}'
+where col_patientId = '{textbox_patientId.Text}'";
                     dc.Connection2(query);
                     _status = status.update;
                     MessageBox.Show("Updated");
                     _clear();
+                    di._clear();
+                    di._select();
                 }
                 else
                 {
@@ -118,7 +173,7 @@ col_patientAssitant = '{combox_patientassitant.Text}'";
             {
                 if (_status == status.select)
                 {
-                    query = $@"delete from tbl_main";
+                    query = $@"delete from tbl_main where col_patientId = '{textbox_patientId.Text}'";
                     dc.Connection2(query);
                     _status = status.delete;
                     MessageBox.Show("Deleted");

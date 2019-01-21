@@ -48,6 +48,7 @@ namespace TerrificSmile.modules.Codes
             }
             return ds;
         }
+
         public DataSet Connection2(string query)
         {
             try

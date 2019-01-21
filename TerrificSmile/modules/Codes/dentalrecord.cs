@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace TerrificSmile.modules.Codes
 {
@@ -25,8 +26,10 @@ namespace TerrificSmile.modules.Codes
             public string teeth_status { get; set; }
         }
         database_connection dc = new database_connection();
-        public async void teethSourceId(string teethid)
+
+        public MahApps.Metro.IconPacks.PackIconEntypoKind teethSourceId(string teethid)
         {
+            MahApps.Metro.IconPacks.PackIconEntypoKind packIcon = MahApps.Metro.IconPacks.PackIconEntypoKind.CircleWithCross;
             dc = new database_connection();
             DataSet ds;
             DataRow drow;
@@ -34,23 +37,25 @@ namespace TerrificSmile.modules.Codes
             try
             {
                 query = $@"select col_teethid from tbl_teethexam where col_teethid = '{teethid}'";
-                ds = await dc.Connection2Async(query);
+                ds = dc.Connection2(query);
                 int count;
                 count = ds.Tables[0].Rows.Count;
 
                 if (count != 0)
                 {
+                    packIcon = MahApps.Metro.IconPacks.PackIconEntypoKind.Circle;
                     query = $@"delete from tbl_teethexam where col_teethid = '{teethid}'";
                     dc.Connection2(query);
                 }
               else
                 {
+                    packIcon = MahApps.Metro.IconPacks.PackIconEntypoKind.CircleWithCross;
                     query = $@"insert into tbl_teethexam(col_teethid) values('{teethid}')";
                     dc.Connection2(query);
                 }
                 teeth_source.Clear();
                 query = $@"select col_teethid from tbl_teethexam";
-                ds = await dc.Connection2Async(query);
+                ds = dc.Connection2(query);
                 int ctr, total;
                 total = ds.Tables[0].Rows.Count;
                 for (ctr = 0; ctr < total; ctr++)
@@ -62,6 +67,7 @@ namespace TerrificSmile.modules.Codes
             {
                 MessageBox.Show(ex.Message);
             }
+            return packIcon;
         }
     }
 }

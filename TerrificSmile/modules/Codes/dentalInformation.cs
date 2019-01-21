@@ -53,8 +53,8 @@ namespace TerrificSmile.modules.Codes
 tbl_main(col_transactionId,col_patientId,col_name,col_age,col_address
 	    ,col_phoneNumber,col_gender,col_patientAssitant,col_reservationId,col_dateReserved
 	    ,col_dateCurrent,col_payment,col_amount,col_change)
-values(123,123,'{name}',{age},'{address}',{phoneNumber},'{gender}','{patientAssistant}'
-        ,123,'{dateReserved}','{MainWindow.date + MainWindow.time}',{payment},{amount},{change})";
+values('{transactionId}','{patientId}','{name}',{age},'{address}',{phoneNumber},'{gender}','{patientAssistant}'
+        ,'{reservationId}','{dateReserved}','{MainWindow.date + MainWindow.time}',{payment},{amount},{change})";
                 dc.Connection2(query);
                 MessageBox.Show("Save");
             }catch(Exception ex)

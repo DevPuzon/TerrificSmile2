@@ -153,6 +153,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="modules\Codes\AccessProperties.cs" />
     <Compile Include="modules\Codes\database-connection.cs" />
     <Compile Include="modules\Codes\dentalInformation.cs" />
     <Compile Include="modules\Codes\dentalrecord.cs" />

@@ -24,9 +24,9 @@
                     <TextBlock Text="Patient Information"/>
                     <TextBox Name="textbox_patientId" IsEnabled="False" materialDesign:HintAssist.Hint="Patient Id" materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="310" />
                     <TextBox Name="textbox_name" materialDesign:HintAssist.Hint="Name" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="310" />
-                    <TextBox Name="textbox_age" materialDesign:HintAssist.Hint="Age" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="310"/>
+                    <TextBox Name="textbox_age" materialDesign:HintAssist.Hint="Age" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="310" PreviewTextInput="NumberValidationTextBox"/>
                     <TextBox Name="textbox_address" materialDesign:HintAssist.Hint="Address" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="310"/>
-                    <TextBox Name="textbox_phoneno" materialDesign:HintAssist.Hint="Phone number" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="310"/>
+                    <TextBox Name="textbox_phoneno" materialDesign:HintAssist.Hint="Phone number" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="310" PreviewTextInput="NumberValidationTextBox"/>
                     <ComboBox  Name="combox_gender" materialDesign:HintAssist.Hint="Gender"   materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Left" Foreground="Black" Width="310" >
                         <ComboBoxItem>Male</ComboBoxItem>
                         <ComboBoxItem>Female</ComboBoxItem>
@@ -103,52 +103,52 @@
                             </Button>
                         </StackPanel>
                         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" >
-                            <Button Name="bttn_18" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_18" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_18_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="18"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon18" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_17" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_17" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_17_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="17"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon17" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_16" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_16" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_16_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="16"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon16" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_15" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_15" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242"  Click="Bttn_15_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="15"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon15" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_14" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_14" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_14_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="14"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon14" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_13" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_13" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_13_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="13"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon13" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_12" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_12" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_12_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="12"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon12" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_11" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_11" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_11_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="11"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon11" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>
@@ -159,85 +159,85 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <StackPanel  Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Button Name="bttn_61" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_61" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_61_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="61"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon61" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_62" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_62" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_62_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="62"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon62" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_63" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_63" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_63_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="63"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon63" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_64" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_64" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_64_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="64"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon64" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_65" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_65" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_65_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="65"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon65" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>
                         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" >
                             
-                            <Button Name="bttn_21" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_21" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_21_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="21"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon21" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_22" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_22" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_22_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="22"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon22" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_23" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_23" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_23_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="23"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon23" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_24" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_24" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_24_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="24"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon24" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_25" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_25" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_25_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="25"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon25" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_26" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_26" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_26_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="26"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon26" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_27" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_27" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_27_Click">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="27"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon27" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_28" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_28" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_28_Click" >
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="28"/>
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon28" Kind="Circle" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>
@@ -249,83 +249,83 @@
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" >
 
-                            <Button Name="bttn_48" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_48" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_48_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon48" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="48"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_47" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_47" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_47_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon47" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="47"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_46" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_46" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_46_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon46" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="46"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_45" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_45" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_45_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon45" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="45"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_44" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_44" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_44_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon44" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="44"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_43" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_43" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_43_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon43" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="43"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_42" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_42" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242"  Click="Bttn_42_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon42" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="42"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_41" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_41" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_41_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon41" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="41"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>
                         <StackPanel  Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Button Name="bttn_81" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_81" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_81_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon81" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="81"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_82" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_82" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_82_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon82" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="82"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_83" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_83" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_83_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon83" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="83"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_84" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_84" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_84_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon84" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="84"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_85" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_85" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_85_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon85" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="85"/>
                                 </StackPanel>
                             </Button>
@@ -338,83 +338,83 @@
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" >
 
-                            <Button Name="bttn_38" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_38" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_38_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon38" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="38"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_37" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_37" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_37_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon37" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="37"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_36" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_36" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_36_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon36" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="36"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_35" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_35" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_35_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon35" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="35"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_34" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_34" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_34_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon34" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="34"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_33" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_33" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_33_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon33" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="33"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_32" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_32" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_32_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon32" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="32"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_31" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_31" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_31_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon31" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="31"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>
                         <StackPanel  Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Button Name="bttn_71" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_71" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_71_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon71" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="71"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_72" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_72" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_72_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon72" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="72"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_73" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_73" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_73_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon73" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="73"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_74" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_74" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_74_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon74" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="74"/>
                                 </StackPanel>
                             </Button>
-                            <Button Name="bttn_75" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" >
+                            <Button Name="bttn_75" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_75_Click">
                                 <StackPanel Orientation="Vertical">
-                                    <iconPacks:PackIconEntypo Kind="Circle" VerticalAlignment="Center"/>
+                                    <iconPacks:PackIconEntypo Name="icon75" Kind="Circle" VerticalAlignment="Center"/>
                                     <TextBlock Text="75"/>
                                 </StackPanel>
                             </Button>
@@ -445,8 +445,8 @@
                                     </ListView.ItemTemplate>
                                 </ListView>
                             </ScrollViewer>
-                            <TextBox Name="textbox_payment" materialDesign:HintAssist.Hint="Payment" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="160"/>
-                            <TextBox Name="textbox_amount" materialDesign:HintAssist.Hint="Amount" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="160" LostFocus="textbox_amount_LostFocus"/>
+                            <TextBox Name="textbox_payment" materialDesign:HintAssist.Hint="Payment" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="160" PreviewTextInput="NumberValidationTextBox"/>
+                            <TextBox Name="textbox_amount" materialDesign:HintAssist.Hint="Amount" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="160" LostFocus="textbox_amount_LostFocus" PreviewTextInput="NumberValidationTextBox"/>
                             <TextBox Name="textbox_change" materialDesign:HintAssist.Hint="Change" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" IsEnabled="False" Foreground="Black" TextWrapping="Wrap" Width="160"/>
                             <Button Name="bttn_done" Margin="5" Foreground="White" Background="#424242" Style="{DynamicResource MaterialDesignFlatButton}" Click="bttn_done_Click">
                                 <StackPanel Orientation="Horizontal">

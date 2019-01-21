@@ -42,9 +42,9 @@
                             <TextBlock Text="Patient Information"/>
                             <TextBox Name="textbox_patientId" materialDesign:HintAssist.Hint="Patient Id" materialDesign:HintAssist.IsFloating="True" Foreground="Black" TextWrapping="Wrap"  IsEnabled="False"/>
                             <TextBox Name="textbox_name" materialDesign:HintAssist.Hint="Name" materialDesign:HintAssist.IsFloating="True" Foreground="Black" TextWrapping="Wrap" />
-                            <TextBox Name="textbox_age" materialDesign:HintAssist.Hint="Age" materialDesign:HintAssist.IsFloating="True" Foreground="Black" TextWrapping="Wrap" />
+                            <TextBox Name="textbox_age" materialDesign:HintAssist.Hint="Age" materialDesign:HintAssist.IsFloating="True" Foreground="Black" TextWrapping="Wrap" PreviewTextInput="NumberValidationTextBox"/>
                             <TextBox Name="textbox_address" materialDesign:HintAssist.Hint="Address" materialDesign:HintAssist.IsFloating="True"  Foreground="Black" TextWrapping="Wrap" />
-                            <TextBox Name="textbox_phoneno" materialDesign:HintAssist.Hint="Phone number" materialDesign:HintAssist.IsFloating="True"  Foreground="Black" TextWrapping="Wrap" />
+                            <TextBox Name="textbox_phoneno" materialDesign:HintAssist.Hint="Phone number" materialDesign:HintAssist.IsFloating="True"  Foreground="Black" TextWrapping="Wrap" PreviewTextInput="NumberValidationTextBox"/>
                             <TextBox Name="textbox_gender" materialDesign:HintAssist.Hint="Gender"   materialDesign:HintAssist.IsFloating="True" Foreground="Black" TextWrapping="Wrap"/>
                             <ComboBox Name="combox_patientassitant" materialDesign:HintAssist.Hint="Patient Assitant" materialDesign:HintAssist.IsFloating="True" Foreground="Black"/>
                         </StackPanel>
@@ -68,10 +68,10 @@
                         <TextBlock Text="Reservation Information"/>
                         <StackPanel Orientation="Horizontal">
                             <TextBox Name="textbox_reservationid" materialDesign:HintAssist.Hint="Reservation Id" materialDesign:HintAssist.IsFloating="True" Foreground="Black" TextWrapping="Wrap"  IsEnabled="False" Margin="5" Width="150"/>
-                            <DatePicker materialDesign:HintAssist.Hint="Date Reserved" materialDesign:HintAssist.IsFloating="True" VerticalAlignment="Bottom" Margin="5" Width="150"/>
+                            <DatePicker Name="datepick_reserveDate" materialDesign:HintAssist.Hint="Date Reserved" materialDesign:HintAssist.IsFloating="True" VerticalAlignment="Bottom" Margin="5" Width="150"/>
                         </StackPanel>
                         <ScrollViewer HorizontalScrollBarVisibility="Visible" Margin="10,10,0,0" MaxHeight="400">
-                            <DataGrid Name="DataGrid_reservation" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top" >
+                            <DataGrid Name="DataGrid_reservation" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top" SelectionChanged="DataGrid_reservation_SelectionChanged" >
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Reservation Id" Binding="{Binding reservationId}" IsReadOnly="True" Width="Auto"/>
                                     <DataGridTextColumn Header="Date Reserved" Binding="{Binding dateReserved}" IsReadOnly="True" Width="Auto"/>
@@ -84,7 +84,7 @@
                     <StackPanel Background="White" Margin="10" Width="400">
                         <TextBlock Text="Transaction History"/>
                         <ScrollViewer HorizontalScrollBarVisibility="Visible" MaxHeight="460">
-                            <DataGrid Name="DataGrid_transaction" Margin="10,0,0,0" HorizontalAlignment="Right" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top" >
+                            <DataGrid Name="DataGrid_transaction" Margin="10,0,0,0" HorizontalAlignment="Right" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top" SelectionChanged="DataGrid_transaction_SelectionChanged">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Transaction Id" Binding="{Binding transactionId}" IsReadOnly="True" Width="Auto"/>
                                     <DataGridTextColumn Header="Patient Id" Binding="{Binding patientId}" IsReadOnly="True" Width="Auto"/>
