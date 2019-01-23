@@ -11,7 +11,7 @@ namespace TerrificSmile.modules.Codes
 {
     class database_connection
     {
-        static string ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Drive_D\Projects\Github\TerrificSmile\db_TerrificSmile.accdb";
+        static string ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Drive_D\Projects\Github\..Net\TerrificSmile\db_TerrificSmile.accdb";
         public static OleDbConnection con = new OleDbConnection();
         public static OleDbCommand cmd = new OleDbCommand();
         public static OleDbDataAdapter da = new OleDbDataAdapter();
