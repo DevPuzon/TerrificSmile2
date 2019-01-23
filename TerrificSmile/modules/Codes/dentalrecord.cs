@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -17,18 +18,22 @@ namespace TerrificSmile.modules.Codes
         {
             teeth_source = new ObservableCollection<teethsource>();
         }
-
         public ObservableCollection<teethsource> teeth_source;
 
         public class teethsource
         {
             public string teeth_id { get; set; }
             public string teeth_status { get; set; }
+            public string teeth_amount { get; set; }
         }
         database_connection dc = new database_connection();
-
+        public void teethSourceIds(MahApps.Metro.IconPacks.PackIconEntypo icon)
+        {
+            ucontrol_dentalchart1.iconList.Add(icon);
+        }
         public MahApps.Metro.IconPacks.PackIconEntypoKind teethSourceId(string teethid)
         {
+            //ucontrol_dentalchart1.iconList.Add(icon);
             MahApps.Metro.IconPacks.PackIconEntypoKind packIcon = MahApps.Metro.IconPacks.PackIconEntypoKind.CircleWithCross;
             dc = new database_connection();
             DataSet ds;
@@ -68,6 +73,43 @@ namespace TerrificSmile.modules.Codes
                 MessageBox.Show(ex.Message);
             }
             return packIcon;
+        }
+        public void ClearTeeth()
+        {
+            dc = new database_connection();
+            string query;
+            query = $@"delete from tbl_teethexam";
+            dc.Connection2(query);
+            teeth_source.Clear();
+        }
+        public ArrayList teethList()
+        {
+            ArrayList arr = new ArrayList();
+            teethsource currentItem;
+            for(int i= 0; i < teeth_source.Count; i++)
+            {
+                currentItem = teeth_source[i];
+                if (currentItem.teeth_status != null)
+                {
+                    arr.Add("1 - " + currentItem.teeth_id + "  " + currentItem.teeth_status);
+                }
+            }
+            return arr;
+        }
+        public int TotalAmount()
+        {
+            int amount = 0;
+            teethsource currentitem;
+            for (int i = 0; i < teeth_source.Count; i++)
+            {
+                currentitem = teeth_source[i];
+                if (currentitem.teeth_amount != null)
+                {
+                    if (currentitem.teeth_amount != "")
+                    amount = amount + int.Parse(currentitem.teeth_amount);
+                }
+            }
+            return amount;
         }
     }
 }

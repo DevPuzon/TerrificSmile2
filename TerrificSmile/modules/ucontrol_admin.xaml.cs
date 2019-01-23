@@ -26,6 +26,7 @@ namespace TerrificSmile.modules
             InitializeComponent();
             _datasource();
         }
+        EditAdminAssistant ea = new EditAdminAssistant();
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
@@ -44,14 +45,28 @@ namespace TerrificSmile.modules
         database_connection dc = new database_connection();
         private void bttn_login_Click(object sender, RoutedEventArgs e)
         {
-            grid_adminform.Visibility = Visibility.Collapsed;
+            Visibility v = Visibility.Visible;
+            if(v == AdminAccess._accessAdmin(textbox_adminusername.Text, passbox_adminpass.Password))
+            {
+                grid_frontform.Visibility = Visibility.Collapsed;
+            }
         }
+
+        private void Bttn_settings_Click(object sender, RoutedEventArgs e)
+        {
+            grid_edit.Visibility = AdminAccess._accessAdmin(textbox_adminusername.Text, passbox_adminpass.Password);
+        }
+
         private void _datasource()
         {
             DataGrid_patientinfo.ItemsSource = di.information_source;
             DataGrid_reservation.ItemsSource = di.information_source;
             DataGrid_transaction.ItemsSource = di.information_source;
             di._select();
+            
+            DataGrid_admin.ItemsSource = ea.adminSource;
+            DataGrid_patientAssistant.ItemsSource = ea.patientAssistantSource;
+            ea._select();
         }
         private void _clear()
         {
@@ -148,11 +163,11 @@ set col_patientId = '{textbox_patientId.Text}'
 ,col_dateReserved = '{datepick_reserveDate.Text}'
 where col_patientId = '{textbox_patientId.Text}'";
                     dc.Connection2(query);
-                    _status = status.update;
-                    MessageBox.Show("Updated");
                     _clear();
                     di._clear();
                     di._select();
+                    _status = status.update;
+                    MessageBox.Show("Updated");
                 }
                 else
                 {
@@ -175,9 +190,11 @@ where col_patientId = '{textbox_patientId.Text}'";
                 {
                     query = $@"delete from tbl_main where col_patientId = '{textbox_patientId.Text}'";
                     dc.Connection2(query);
+                    _clear();
+                    di._clear();
+                    di._select();
                     _status = status.delete;
                     MessageBox.Show("Deleted");
-                    _clear();
                 }
                 else
                 {
@@ -188,6 +205,143 @@ where col_patientId = '{textbox_patientId.Text}'";
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        #region Editadmin
+        public string idAdmin;
+        enum adminStatus
+        {
+            save,
+            delete,
+            select,
+            none
+        }
+        bool adminAdd = false;
+        adminStatus admin_status = adminStatus.none;
+        private void _clearAdmin()
+        {
+            textbox_editadminusername.Text = "";
+            textbox_editpasswordadmin.Text = "";
+        }
+
+        private void Bttn_newAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            _clearAdmin();
+            adminAdd = true;
+            idAdmin = "0123456789";
+            MessageBox.Show("Add new admin");
+        }
+
+        private void Bttn_saveAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            if (admin_status == adminStatus.select || adminAdd)
+            {
+                ea._saveAdmin(idAdmin, textbox_editadminusername.Text, textbox_editpasswordadmin.Text);
+                adminAdd = false;
+                _clearAdmin();
+                ea._clearSelect();
+                admin_status = adminStatus.save;
+            }
+            else
+            {
+                MessageBox.Show("Please select the admin row or click new admin");
+            }
+        }
+
+        private void Bttn_deleteAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            if (admin_status == adminStatus.select)
+            {
+                ea._deleteAdmin(idAdmin);
+                _clearAdmin();
+                ea._clearSelect();
+                admin_status = adminStatus.delete;
+            }
+            else
+            {
+                MessageBox.Show("Please select the admin row");
+            }
+        }
+
+        private void DataGrid_admin_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DataGrid_admin.SelectedItem == null) return;
+            var selectedItem = DataGrid_admin.SelectedItem as EditAdminAssistant.admin_source;
+            idAdmin = selectedItem.id;
+            textbox_editadminusername.Text = selectedItem.adminUserName;
+            textbox_editpasswordadmin.Text = selectedItem.password;
+
+            admin_status = adminStatus.select;
+        }
+        #endregion
+        #region EditAsisstant
+        public string idAssistant;
+        public enum assistantStatus
+        {
+            save,
+            delete,
+            select,
+            none
+        }
+        assistantStatus assistant_status = assistantStatus.none;
+        bool assistantAdd = false;
+        private void _clearAssistant()
+        {
+            textbox_patientAssistant.Text = "";
+        }
+
+        private void Bttn_newAssistant_Click(object sender, RoutedEventArgs e)
+        {
+            _clearAssistant();
+            assistantAdd = true;
+            idAssistant  = "0123456789";
+            MessageBox.Show("Add new admin");
+        }
+
+        private void DataGrid_patientAssistant_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DataGrid_patientAssistant.SelectedItem == null) return;
+            var selectedItem = DataGrid_patientAssistant.SelectedItem as EditAdminAssistant.patientassistant_source;
+            idAssistant = selectedItem.id;
+            textbox_patientAssistant.Text = selectedItem.patientAssistant;
+
+            assistant_status = assistantStatus.select;
+        }
+
+        private void Bttn_deletePatientAsistatn_Click(object sender, RoutedEventArgs e)
+        {
+            if (assistant_status == assistantStatus.select)
+            {
+                ea._deletePatientAssistant(idAssistant);
+                _clearAssistant();
+                ea._clearSelect();
+                assistant_status = assistantStatus.delete;
+            }
+            else
+            {
+                MessageBox.Show("Please select the assistant row");
+            }
+        }
+
+        private void Bttn_savePatientAssistant_Click(object sender, RoutedEventArgs e)
+        {
+            if (assistant_status == assistantStatus.select || assistantAdd)
+            {
+                ea._saveAssistant(idAssistant, textbox_patientAssistant.Text);
+                assistantAdd = false;
+                _clearAssistant();
+                ea._clearSelect();
+                assistant_status = assistantStatus.save;
+            }
+            else
+            {
+                MessageBox.Show("Please select the admin row  or click new assistant");
+            }
+        }
+        #endregion
+
+        private void Btnn_back_Click(object sender, RoutedEventArgs e)
+        {
+            grid_edit.Visibility = Visibility.Collapsed;
         }
     }
 }

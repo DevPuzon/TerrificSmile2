@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TerrificSmile"
         mc:Ignorable="d"  
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         Title="MainWindow" x:Name="main" Height="700" Width="1300" WindowStartupLocation="CenterScreen" Background="#E0E0E0" WindowStyle="None" ResizeMode="NoResize" WindowState="Maximized">
     <Grid >
         <Grid.RowDefinitions>

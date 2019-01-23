@@ -23,7 +23,7 @@ namespace TerrificSmile.modules
         public ucontrol_report()
         {
             InitializeComponent();
-            r.receipt();
+            //r.receipt();
             _datagrid_report();
         }
         report r = new report();

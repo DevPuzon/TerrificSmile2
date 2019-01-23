@@ -101,16 +101,92 @@
                 </WrapPanel>
             </StackPanel>
         </ScrollViewer>
-        <Grid Name="grid_adminform" Grid.RowSpan="2" Background="Black" Visibility="Collapsed">
-            <Grid Margin="550,50,550,50" Background="#E0E0E0">
+        <Grid Name="grid_frontform" Grid.RowSpan="2" Background="Black" Visibility="Visible">
+            <Grid Name="grid_adminForm" Margin="550,50,550,50" Background="#FAFAFA" Visibility="Visible">
                 <StackPanel Margin="50">
                     <TextBlock Text="Admin login form"/>
-                    <TextBox Name="textbox_adminusername" materialDesign:HintAssist.Hint="Admin username" materialDesign:HintAssist.IsFloating="True"  Foreground="Black" TextWrapping="Wrap" />
+                    <TextBox Name="textbox_adminusername" materialDesign:HintAssist.Hint="Username" materialDesign:HintAssist.IsFloating="True"  Foreground="Black" TextWrapping="Wrap" />
                     <PasswordBox Name="passbox_adminpass" materialDesign:HintAssist.Hint="Password" materialDesign:HintAssist.IsFloating="True"  Foreground="Black" />
                     <Button Name="bttn_login" Margin="5" Foreground="White" Background="#2196F3" Style="{DynamicResource MaterialDesignFlatButton}" Click="bttn_login_Click">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="Login"/>
                             <TextBlock Text="Login" Margin="10,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <Button Name="bttn_settings" VerticalAlignment="Bottom" Foreground="White" Background="#2196F3" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_settings_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <iconPacks:PackIconMaterial Kind="Settings"/>
+                        <TextBlock Text="Settings" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+            <Grid Name="grid_edit" Margin="350,30,350,30" Background="#FAFAFA" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Name="btnn_back" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="0" ToolTip="Back" Margin="5" Foreground="White" Style="{DynamicResource MaterialDesignFloatingActionButton}" Click="Btnn_back_Click">
+                    <iconPacks:PackIconMaterial Kind="ArrowLeftBold"/>
+                </Button>
+                <StackPanel Grid.Column="1" Margin="10" Background="#F3F3F3">
+                    <TextBlock Text="Admin Information" Margin="15" VerticalAlignment="Top"/>
+                    <ScrollViewer MaxHeight="280">
+                        <DataGrid Name="DataGrid_admin"  Height="280"  Margin="10,0,0,0" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top" SelectionChanged="DataGrid_admin_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Username" Binding="{Binding adminUserName}" IsReadOnly="True" Width="170"/>
+                                <DataGridTextColumn Header="Password" Binding="{Binding password}" IsReadOnly="True" Width="Auto"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </ScrollViewer>
+                    <TextBox Name="textbox_editadminusername" materialDesign:HintAssist.Hint="Username" materialDesign:HintAssist.IsFloating="True"  Foreground="Black" TextWrapping="Wrap"  Margin="5,5,5,5"/>
+                    <TextBox Name="textbox_editpasswordadmin" materialDesign:HintAssist.Hint="Password" materialDesign:HintAssist.IsFloating="True"  Foreground="Black" TextWrapping="Wrap" Margin="5,5,5,5"/>
+                    <Button Name="bttn_newAdmin" Margin="5" Foreground="White" Background="#424242" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_newAdmin_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="Plus"/>
+                            <TextBlock Text="New Admin" Margin="10,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Name="bttn_deleteAdmin" Margin="5" Foreground="White" Background="#E91E63" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_deleteAdmin_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="Delete"/>
+                            <TextBlock Text="Delete" Margin="10,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Name="bttn_updateAdmin" Margin="5" Foreground="White" Background="#2196F3" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_saveAdmin_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="ContentSave"/>
+                            <TextBlock Text="Save" Margin="10,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Margin="10" Background="#F3F3F3">
+                    <TextBlock Text="Patient Assistant Information" Margin="15" VerticalAlignment="Top"/>
+                    <ScrollViewer MaxHeight="280">
+                        <DataGrid Name="DataGrid_patientAssistant"  Height="280"  Margin="10,0,0,0" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top" SelectionChanged="DataGrid_patientAssistant_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Patient Assistant" Binding="{Binding patientAssistant}" IsReadOnly="True" Width="170"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </ScrollViewer>
+                    <TextBox Name="textbox_patientAssistant" materialDesign:HintAssist.Hint="PatientAssistant" materialDesign:HintAssist.IsFloating="True"  Foreground="Black" TextWrapping="Wrap"  Margin="5,5,5,5"/>
+                    <Button Name="bttn_newAssistant"  Margin="5,55,5,5" Foreground="White" Background="#424242" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_newAssistant_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="Plus"/>
+                            <TextBlock Text="New Assistant" Margin="10,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Name="bttn_deletePatientAsistatn" Margin="5" Foreground="White" Background="#E91E63" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_deletePatientAsistatn_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="Delete"/>
+                            <TextBlock Text="Delete" Margin="10,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Name="bttn_savePatientAssistant" Margin="5" Foreground="White" Background="#2196F3" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_savePatientAssistant_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="ContentSave"/>
+                            <TextBlock Text="Save" Margin="10,0,0,0"/>
                         </StackPanel>
                     </Button>
                 </StackPanel>

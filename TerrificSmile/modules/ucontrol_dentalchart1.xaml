@@ -431,24 +431,32 @@
                         <StackPanel>
                             <Grid>
                                 <TextBlock Text="Teeth Id."/>
-                                <TextBlock Text="Status" HorizontalAlignment="Right"/>
+                                <TextBlock Text="Status" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Amount" HorizontalAlignment="Right"/>
                             </Grid>
-                            <ScrollViewer MaxHeight="400">
+                            <ScrollViewer MaxHeight="360">
                                 <ListView Name="Listview_teethStatus">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Text="{Binding teeth_id}" HorizontalAlignment="Left"/>
-                                                <TextBox Text="{Binding teeth_status}" HorizontalAlignment="Right" Width="100"/>
+                                                <TextBox Text="{Binding teeth_status}" HorizontalAlignment="Center" Width="80"/>
+                                                <TextBox Name="txtbox_amount2" Text="{Binding teeth_amount}" HorizontalAlignment="Right" Width="60" Margin="5,0,0,0" LostFocus="Txtbox_amount2_LostFocus" PreviewTextInput="NumberValidationTextBox"/>
                                             </StackPanel>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
                                 </ListView>
                             </ScrollViewer>
-                            <TextBox Name="textbox_payment" materialDesign:HintAssist.Hint="Payment" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="160" PreviewTextInput="NumberValidationTextBox"/>
-                            <TextBox Name="textbox_amount" materialDesign:HintAssist.Hint="Amount" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="160" LostFocus="textbox_amount_LostFocus" PreviewTextInput="NumberValidationTextBox"/>
+                            <TextBox Name="textbox_payment" materialDesign:HintAssist.Hint="Payment" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="160" PreviewTextInput="NumberValidationTextBox" LostFocus="Textbox_payment_LostFocus"/>
+                            <TextBox Name="textbox_amount" materialDesign:HintAssist.Hint="Total Amount" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" IsEnabled="False" Foreground="Black" TextWrapping="Wrap" Width="160" PreviewTextInput="NumberValidationTextBox"/>
                             <TextBox Name="textbox_change" materialDesign:HintAssist.Hint="Change" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" IsEnabled="False" Foreground="Black" TextWrapping="Wrap" Width="160"/>
-                            <Button Name="bttn_done" Margin="5" Foreground="White" Background="#424242" Style="{DynamicResource MaterialDesignFlatButton}" Click="bttn_done_Click">
+                            <Button Name="bttn_clear" Margin="5" Foreground="White" Background="#E91E63" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_clear_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <iconPacks:PackIconMaterial Kind="FormatClear"/>
+                                    <TextBlock Text="Clear" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Name="bttn_done" Margin="5" Foreground="White" Background="#2196F3" Style="{DynamicResource MaterialDesignFlatButton}" Click="bttn_done_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconMaterial Kind="Check"/>
                                     <TextBlock Text="Done" Margin="10,0,0,0"/>
