@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="TerrificSmile.modules.ucontrol_income"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TerrificSmile.modules"
+             mc:Ignorable="d" 
+             d:DesignHeight="560" d:DesignWidth="1300"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="White" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="bttn_add" Margin="5" Foreground="White" Background="#2196F3" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_add_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <iconPacks:PackIconMaterial Kind="Plus"/>
+                        <TextBlock Text="Add" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="bttn_save" Margin="5" Foreground="White" Background="#2196F3" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_save_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <iconPacks:PackIconMaterial Kind="ContentSave"/>
+                        <TextBlock Text="Save" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="bttn_delete" Margin="5" Foreground="White" Background="#E91E63" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_delete_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <iconPacks:PackIconMaterial Kind="Delete"/>
+                        <TextBlock Text="Delete" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <TextBlock Text="Month - Year" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <ComboBox Name="combox_month" materialDesign:HintAssist.Hint="Month" materialDesign:HintAssist.IsFloating="True" Width="150" Margin="5,0,15,0" DropDownClosed="Combox_month_DropDownClosed"/>
+                <ComboBox Name="combox_year" materialDesign:HintAssist.Hint="Year" materialDesign:HintAssist.IsFloating="True" Width="150" Margin="5,0,15,0" DropDownClosed="Combox_year_DropDownClosed"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Background="White" Margin="10">
+                <StackPanel Margin="10" HorizontalAlignment="Left">
+                    <TextBlock Text="Daily inventory"/>
+                    <TextBox Name="textbox_gross" materialDesign:HintAssist.Hint="Gross" HorizontalAlignment="Left" Width="150" materialDesign:HintAssist.IsFloating="True" Foreground="Black" TextWrapping="Wrap" PreviewTextInput="NumberValidationTextBox" />
+                    <TextBox Name="textbox_commission" materialDesign:HintAssist.Hint="Commission" HorizontalAlignment="Left" Width="150" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox Name="textbox_perday" materialDesign:HintAssist.Hint="Per day" HorizontalAlignment="Left" Width="150" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBlock Text="Other" Margin="0,10,0,0"/>
+                    <TextBox Name="textbox_other" materialDesign:HintAssist.Hint="Other" HorizontalAlignment="Left" Width="150" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" PreviewTextInput="NumberValidationTextBox"/>
+                </StackPanel>
+                <DataGrid Name="DataGrid_dailyIncome" Margin="10" HorizontalAlignment="Right" Width="300" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="DataGrid_dailyIncome_SelectionChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Gross" Binding="{Binding gross}" IsReadOnly="True" Width="Auto"/>
+                        <DataGridTextColumn Header="Commission" Binding="{Binding commission}" IsReadOnly="True" Width="Auto"/>
+                        <DataGridTextColumn Header="Per day" Binding="{Binding perday}" IsReadOnly="True" Width="Auto"/>
+                        <DataGridTextColumn Header="Other" Binding="{Binding other}" IsReadOnly="True" Width="Auto"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <Grid Grid.Column="1" Background="White" Margin="10">
+                <StackPanel Margin="10" HorizontalAlignment="Left">
+                    <TextBlock Text="Expenses"/>
+                    <TextBox Name="textbox_expenses" materialDesign:HintAssist.Hint="Description" Width="150" HorizontalAlignment="Left" materialDesign:HintAssist.IsFloating="True" Foreground="Black" TextWrapping="Wrap" PreviewTextInput="NumberValidationTextBox" />
+                    <TextBox Name="textbox_fee" materialDesign:HintAssist.Hint="Fee" Width="150" HorizontalAlignment="Left" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" PreviewTextInput="NumberValidationTextBox"/>
+                 </StackPanel>
+                <DataGrid Name="DataGrid_expenses" Margin="10" HorizontalAlignment="Right" Width="300" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="DataGrid_expenses_SelectionChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Description" Binding="{Binding description}" IsReadOnly="True" Width="Auto"/>
+                        <DataGridTextColumn Header="Fee" Binding="{Binding fee}" IsReadOnly="True" Width="Auto"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <Grid Grid.Column="2" Background="White" Margin="10">
+                <StackPanel Margin="10">
+                    <TextBlock Name="txtblock_totalexpenses" Text="Total Expenses : " Margin="5,5,5,0"/>
+                    <TextBlock Name="txtblock_totalcommision" Text="Total Commission : " Margin="5,5,5,0"/>
+                    <TextBlock Name="txtblock_totalperday" Text="Total Per Day : " Margin="5,5,5,0"/>
+                    <TextBlock Name="txtblock_sumecp" Text="Sum of ECP : " Margin="5,5,5,0"/>
+                    <TextBlock Name="txtblock_totalgross" Text="Total Gross : " Margin="5,25,5,0"/>
+                    <TextBlock Name="txtblock_sumecp2" Text="Sum of ECP : " Margin="5,5,5,0"/>
+                    <TextBlock Name="txtblock_deff" Text="Difference of Gross and ECP : " Margin="5,5,5,0"/>
+
+                    <TextBlock Name="txtblock_deff2" Text="Difference of Gross and ECP : " Margin="5,25,5,0"/>
+                    <TextBlock Name="txtblock_totalother" Text="Total Other : "  Margin="5,5,5,0" />
+                    <TextBlock Name="txtblock_totalincome" Text="Total Average : " Margin="5,25,5,0" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

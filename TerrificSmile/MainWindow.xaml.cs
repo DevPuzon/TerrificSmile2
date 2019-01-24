@@ -96,6 +96,12 @@ namespace TerrificSmile
 
         }
 
+        private void Bttn_income_Click(object sender, RoutedEventArgs e)
+        {
+            ucontrol_income h = new ucontrol_income();
+            ucontrol_main.Content = h;
+        }
+
         private void bttn_about_Click(object sender, RoutedEventArgs e)
         {
 

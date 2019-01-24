@@ -142,5 +142,29 @@ col_name like '%{search}%' or col_reservationId like '%{search}%'";
                 MessageBox.Show(ex.Message);
             }
         }
+        public List<string> _assistantList()
+        {
+            List<string> vs = new List<string>();
+            dc = new database_connection();
+            DataSet ds;
+            DataRow drow;
+            string query;
+            try
+            {
+                query = $@"select col_patientAssistant from tbl_patientAssistant";
+                ds = dc.Connection2(query);
+                int count;
+                count = ds.Tables[0].Rows.Count;
+                for(int i = 0; i< count; i++)
+                {
+                    drow = ds.Tables[0].Rows[i];
+                    vs.Add(drow.ItemArray.GetValue(0).ToString());
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return vs;
+        }
     }
 }

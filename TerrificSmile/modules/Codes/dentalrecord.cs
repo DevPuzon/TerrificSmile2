@@ -100,13 +100,20 @@ namespace TerrificSmile.modules.Codes
         {
             int amount = 0;
             teethsource currentitem;
-            for (int i = 0; i < teeth_source.Count; i++)
+            int count;
+            count = teeth_source.Count;
+            for (int i = 0; i < count; i++)
             {
                 currentitem = teeth_source[i];
                 if (currentitem.teeth_amount != null)
                 {
                     if (currentitem.teeth_amount != "")
                     amount = amount + int.Parse(currentitem.teeth_amount);
+                    ucontrol_dentalchart1.amount2valid = true;
+                }
+                else
+                {
+                    ucontrol_dentalchart1.amount2valid = false;
                 }
             }
             return amount;

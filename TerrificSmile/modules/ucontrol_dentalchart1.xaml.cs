@@ -29,6 +29,7 @@ namespace TerrificSmile.modules
             InitializeComponent();
             refresh();
             Listview_teethStatus.ItemsSource = th.teeth_source;
+            combox_patientassitant.ItemsSource = di._assistantList();
             generateId();
         }
         //MahApps.Metro.IconPacks.PackIconEntypoKind[] icon = new MahApps.Metro.IconPacks.PackIconEntypoKind[100];
@@ -370,27 +371,30 @@ namespace TerrificSmile.modules
             icon71.Kind = th.teethSourceId("71");
         }
         #endregion
+
+        public static bool amount2valid;
         private void bttn_done_Click(object sender, RoutedEventArgs e)
-        {
-            ArrayList teethList = new ArrayList();
-            teethList = th.teethList();
-            r.receipt(textbox_transactionId.Text,textbox_patientId.Text,textbox_name.Text,textbox_reservationId.Text,datepicker_dateReserved.Text
-                      ,combox_patientassitant.Text,textbox_payment.Text,textbox_amount.Text,textbox_change.Text,teethList);
-            dentalrecord.teethsource currentteeth;
-            int ctr, total;
-            total = th.teeth_source.Count;
-            string query;
-            for (ctr = 0; ctr < total; ctr++)
+        {     
+            if (textbox_name.Text != "" &&
+                   textbox_age.Text != "" &&
+                   textbox_address.Text != "" &&
+                   textbox_phoneno.Text != "" &&
+                   combox_gender.Text != "" &&
+                   combox_patientassitant.Text != "" &&
+                   datepicker_dateReserved.Text != "" &&
+                   textbox_payment.Text != "" && amount2valid)
             {
-                currentteeth = th.teeth_source[ctr];
-                if (currentteeth.teeth_status != null)
-                {
-                    query = $@"update tbl_teethexam set col_teethstatus = '{currentteeth.teeth_status}' where col_teethid = '{currentteeth.teeth_id}'";
-                    dc.Connection2(query);
-                }
+                ArrayList teethList = new ArrayList();
+                teethList = th.teethList();
+                r.receipt(textbox_transactionId.Text, textbox_patientId.Text, textbox_name.Text, textbox_reservationId.Text, datepicker_dateReserved.Text
+                          , combox_patientassitant.Text, textbox_payment.Text, textbox_amount.Text, textbox_change.Text, teethList);
+                grid_receipt.Visibility = Visibility.Visible;
+                richbox_receiptD.Document = report.mcFlowDoc;
             }
-            grid_receipt.Visibility = Visibility.Visible;
-            richbox_receiptD.Document = report.mcFlowDoc;
+            else
+            {
+                MessageBox.Show("You forgot to fill up all the data infomation");
+            }
         }
         #region Receip
         private void bttn_cancel_Click(object sender, RoutedEventArgs e)
@@ -430,7 +434,10 @@ namespace TerrificSmile.modules
 
         private void Txtbox_amount2_LostFocus(object sender, RoutedEventArgs e)
         {
-             textbox_amount.Text = th.TotalAmount().ToString();
+            textbox_amount.Text = th.TotalAmount().ToString();
+            if (textbox_payment.Text == "" || textbox_amount.Text == "") return;
+            change = int.Parse(textbox_payment.Text) - int.Parse(textbox_amount.Text);
+            textbox_change.Text = change.ToString();
         }
 
         private void Textbox_payment_LostFocus(object sender, RoutedEventArgs e)

@@ -10,7 +10,7 @@
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" Margin="10" Background="#FAFAFA">
@@ -20,33 +20,33 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" Width="Auto" Orientation="Vertical">
-                    <TextBox Name="textbox_transactionId" Margin="0,0,0,20" IsEnabled="False" materialDesign:HintAssist.Hint="Transaction Id" materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="310" />
+                    <TextBox Name="textbox_transactionId" Margin="0,0,0,20" IsEnabled="False" materialDesign:HintAssist.Hint="Transaction Id" materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Left"  TextWrapping="Wrap" Width="250" />
                     <TextBlock Text="Patient Information"/>
-                    <TextBox Name="textbox_patientId" IsEnabled="False" materialDesign:HintAssist.Hint="Patient Id" materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="310" />
-                    <TextBox Name="textbox_name" materialDesign:HintAssist.Hint="Name" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="310" />
-                    <TextBox Name="textbox_age" materialDesign:HintAssist.Hint="Age" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="310" PreviewTextInput="NumberValidationTextBox"/>
-                    <TextBox Name="textbox_address" materialDesign:HintAssist.Hint="Address" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="310"/>
-                    <TextBox Name="textbox_phoneno" materialDesign:HintAssist.Hint="Phone number" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="310" PreviewTextInput="NumberValidationTextBox"/>
-                    <ComboBox  Name="combox_gender" materialDesign:HintAssist.Hint="Gender"   materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Left" Foreground="Black" Width="310" >
+                    <TextBox Name="textbox_patientId" IsEnabled="False" materialDesign:HintAssist.Hint="Patient Id" materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Left"  TextWrapping="Wrap" Width="250" />
+                    <TextBox Name="textbox_name" materialDesign:HintAssist.Hint="Name" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left"  TextWrapping="Wrap" Width="250" />
+                    <TextBox Name="textbox_age" materialDesign:HintAssist.Hint="Age" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left"  TextWrapping="Wrap" Width="250" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox Name="textbox_address" materialDesign:HintAssist.Hint="Address" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left"  TextWrapping="Wrap" Width="250"/>
+                    <TextBox Name="textbox_phoneno" materialDesign:HintAssist.Hint="Phone number" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left"  TextWrapping="Wrap" Width="250" PreviewTextInput="NumberValidationTextBox"/>
+                    <ComboBox  Name="combox_gender" materialDesign:HintAssist.Hint="Gender"   materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Left"  Width="250" >
                         <ComboBoxItem>Male</ComboBoxItem>
                         <ComboBoxItem>Female</ComboBoxItem>
                     </ComboBox>
                     
-                    <Rectangle Grid.Row="0" Margin="0,5,0,3" Height="3" Fill="#AAB2BD" VerticalAlignment="Top" RadiusY="4" RadiusX="4"/>
-                    <ComboBox  Name="combox_patientassitant" materialDesign:HintAssist.Hint="Patient Assitant" materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Left" Foreground="Black" Width="310" />
+                    <Rectangle Grid.Row="0" Margin="0,5,0,5" Height="3" Fill="#AAB2BD" VerticalAlignment="Top" RadiusY="4" RadiusX="4"/>
+                    <ComboBox  Name="combox_patientassitant" materialDesign:HintAssist.Hint="Patient Assitant" materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Left"  Width="250" />
                 </StackPanel>
                 <StackPanel Grid.Row="1" Width="Auto" Orientation="Vertical">
-                    <TextBlock Text="Reservation Information"  />
+                    <TextBlock Text="Reservation Information" Margin="0,20,0,0" />
                     <TextBox Name="textbox_reservationId" materialDesign:HintAssist.Hint="Reservation Id" materialDesign:HintAssist.IsFloating="True" IsEnabled="False"/>
-                    <DatePicker Name="datepicker_dateReserved" materialDesign:HintAssist.Hint="Date Reserved" materialDesign:HintAssist.IsFloating="True"  Margin="0,10,0,0"/>
+                    <DatePicker Name="datepicker_dateReserved" materialDesign:HintAssist.Hint="Date Reserved" materialDesign:HintAssist.IsFloating="True"  Margin="0,15,0,0"/>
                 </StackPanel>
             </Grid>
         </Grid>
-        <Grid Grid.Column="1">
-            <Grid Margin="0,10,10,10" Background="#FAFAFA">
+        <Grid Grid.Column="1" Margin="10">
+            <Grid Background="#FAFAFA">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
                     <Grid.RowDefinitions>
@@ -447,9 +447,9 @@
                                     </ListView.ItemTemplate>
                                 </ListView>
                             </ScrollViewer>
-                            <TextBox Name="textbox_payment" materialDesign:HintAssist.Hint="Payment" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" Foreground="Black" TextWrapping="Wrap" Width="160" PreviewTextInput="NumberValidationTextBox" LostFocus="Textbox_payment_LostFocus"/>
-                            <TextBox Name="textbox_amount" materialDesign:HintAssist.Hint="Total Amount" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" IsEnabled="False" Foreground="Black" TextWrapping="Wrap" Width="160" PreviewTextInput="NumberValidationTextBox"/>
-                            <TextBox Name="textbox_change" materialDesign:HintAssist.Hint="Change" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" IsEnabled="False" Foreground="Black" TextWrapping="Wrap" Width="160"/>
+                            <TextBox Name="textbox_payment" materialDesign:HintAssist.Hint="Payment" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left"  TextWrapping="Wrap" Width="180" PreviewTextInput="NumberValidationTextBox" LostFocus="Textbox_payment_LostFocus"/>
+                            <TextBox Name="textbox_amount" materialDesign:HintAssist.Hint="Total Amount" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" IsEnabled="False"  TextWrapping="Wrap" Width="180" PreviewTextInput="NumberValidationTextBox"/>
+                            <TextBox Name="textbox_change" materialDesign:HintAssist.Hint="Change" materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left" IsEnabled="False"  TextWrapping="Wrap" Width="180"/>
                             <Button Name="bttn_clear" Margin="5" Foreground="White" Background="#E91E63" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_clear_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconMaterial Kind="FormatClear"/>

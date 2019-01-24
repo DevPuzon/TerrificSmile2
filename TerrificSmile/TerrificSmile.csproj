@@ -136,6 +136,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="modules\ucontrol_income.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="modules\ucontrol_report.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,6 +166,9 @@
     </Compile>
     <Compile Include="modules\ucontrol_dentalchart1.xaml.cs">
       <DependentUpon>ucontrol_dentalchart1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="modules\ucontrol_income.xaml.cs">
+      <DependentUpon>ucontrol_income.xaml</DependentUpon>
     </Compile>
     <Compile Include="modules\ucontrol_report.xaml.cs">
       <DependentUpon>ucontrol_report.xaml</DependentUpon>

@@ -14,16 +14,16 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <StackPanel Orientation="Horizontal" Background="White" Margin="10">
-                <Button Name="bttn_delete" Margin="5" Foreground="White" Background="#E91E63" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_delete_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <iconPacks:PackIconMaterial Kind="Delete"/>
-                        <TextBlock Text="Delete" Margin="10,0,0,0"/>
-                    </StackPanel>
-                </Button>
                 <Button Name="bttn_update" Margin="5" Foreground="White" Background="#2196F3" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_update_Click">
                     <StackPanel Orientation="Horizontal">
                         <iconPacks:PackIconMaterial Kind="Update"/>
                         <TextBlock Text="Update" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="bttn_delete" Margin="5" Foreground="White" Background="#E91E63" Style="{DynamicResource MaterialDesignFlatButton}" Click="Bttn_delete_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <iconPacks:PackIconMaterial Kind="Delete"/>
+                        <TextBlock Text="Delete" Margin="10,0,0,0"/>
                     </StackPanel>
                 </Button>
             </StackPanel>

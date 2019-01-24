@@ -63,6 +63,12 @@
                                 <TextBlock Text="Admin " Margin="8,0,0,0"/>
                             </StackPanel>
                         </Button>
+                        <Button Name="bttn_income" Height="auto" Width="150" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="Bttn_income_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial Kind="CheckboxMultipleMarkedOutline"/>
+                                <TextBlock Text="Income " Margin="8,0,0,0"/>
+                            </StackPanel>
+                        </Button>
                         <Button Name="bttn_devoption" Height="auto" Width="150" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#424242" Click="bttn_devoption_Click">
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconMaterial Kind="Settings" VerticalAlignment="Center"/>
