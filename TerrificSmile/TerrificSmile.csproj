@@ -160,6 +160,7 @@
     <Compile Include="modules\Codes\dentalrecord.cs" />
     <Compile Include="modules\Codes\EditAdminAssistant.cs" />
     <Compile Include="modules\Codes\getId.cs" />
+    <Compile Include="modules\Codes\Income.cs" />
     <Compile Include="modules\Codes\report.cs" />
     <Compile Include="modules\ucontrol_admin.xaml.cs">
       <DependentUpon>ucontrol_admin.xaml</DependentUpon>

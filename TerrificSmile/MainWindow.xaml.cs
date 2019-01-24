@@ -37,7 +37,7 @@ namespace TerrificSmile
         {
             DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
-                date = DateTime.Now.ToString("MM/dd/yyyy");
+                date = DateTime.Now.ToString("M/d/yyyy");
                 time = DateTime.Now.ToString(" hh: mm: ss");
                 this.txt_datetime.Text = date + "\t" +time;
             }, this.Dispatcher);
