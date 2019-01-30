@@ -78,6 +78,9 @@
     <Reference Include="BespokeFusion">
       <HintPath>..\packages\MaterialMessageBox.1.0.0.11\lib\BespokeFusion.dll</HintPath>
     </Reference>
+    <Reference Include="De.TorstenMandelkow.MetroChart">
+      <HintPath>..\packages\MetroChart.Dll\De.TorstenMandelkow.MetroChart.dll</HintPath>
+    </Reference>
     <Reference Include="MahApps.Metro">
       <HintPath>..\packages\MahApps.Metro.1.5.0\lib\net45\MahApps.Metro.dll</HintPath>
     </Reference>
@@ -140,6 +143,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="modules\ucontrol_monthlyIncome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="modules\ucontrol_report.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,6 +161,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="modules\ChartModel\MonthlyModelClass.cs" />
+    <Compile Include="modules\ChartModel\MonthlyPageViewModel.cs" />
     <Compile Include="modules\Codes\AdminAccess.cs" />
     <Compile Include="modules\Codes\database-connection.cs" />
     <Compile Include="modules\Codes\dentalInformation.cs" />
@@ -161,6 +170,7 @@
     <Compile Include="modules\Codes\EditAdminAssistant.cs" />
     <Compile Include="modules\Codes\getId.cs" />
     <Compile Include="modules\Codes\Income.cs" />
+    <Compile Include="modules\Codes\MonthlyIncome.cs" />
     <Compile Include="modules\Codes\report.cs" />
     <Compile Include="modules\ucontrol_admin.xaml.cs">
       <DependentUpon>ucontrol_admin.xaml</DependentUpon>
@@ -170,6 +180,9 @@
     </Compile>
     <Compile Include="modules\ucontrol_income.xaml.cs">
       <DependentUpon>ucontrol_income.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="modules\ucontrol_monthlyIncome.xaml.cs">
+      <DependentUpon>ucontrol_monthlyIncome.xaml</DependentUpon>
     </Compile>
     <Compile Include="modules\ucontrol_report.xaml.cs">
       <DependentUpon>ucontrol_report.xaml</DependentUpon>

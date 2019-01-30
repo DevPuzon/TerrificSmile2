@@ -50,7 +50,7 @@
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="520"/>
                 <ColumnDefinition Width="500"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
@@ -62,22 +62,24 @@
                     <TextBox Name="textbox_commission" materialDesign:HintAssist.Hint="Commission" HorizontalAlignment="Left" Width="150" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" PreviewTextInput="NumberValidationTextBox"/>
                     <TextBox Name="textbox_perday" materialDesign:HintAssist.Hint="Per day" HorizontalAlignment="Left" Width="150" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" PreviewTextInput="NumberValidationTextBox"/>
                     <TextBlock Text="Other" Margin="0,10,0,0"/>
-                    <TextBox Name="textbox_other" materialDesign:HintAssist.Hint="Other" HorizontalAlignment="Left" Width="150" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox Name="textbox_otherDescription" materialDesign:HintAssist.Hint="Description" HorizontalAlignment="Left" Width="150" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" />
+                    <TextBox Name="textbox_otherFee" materialDesign:HintAssist.Hint="Amount" HorizontalAlignment="Left" Width="150" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" PreviewTextInput="NumberValidationTextBox"/>
                 </StackPanel>
-                <DataGrid Name="DataGrid_dailyIncome" Margin="10" HorizontalAlignment="Right" Width="300" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="DataGrid_dailyIncome_SelectionChanged">
+                <DataGrid Name="DataGrid_dailyIncome" Margin="10" HorizontalAlignment="Right" Width="320" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="DataGrid_dailyIncome_SelectionChanged">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Day" Binding="{Binding day}" IsReadOnly="True" Width="Auto"/>
                         <DataGridTextColumn Header="Gross" Binding="{Binding gross}" IsReadOnly="True" Width="Auto"/>
                         <DataGridTextColumn Header="Commission" Binding="{Binding commission}" IsReadOnly="True" Width="Auto"/>
                         <DataGridTextColumn Header="Per day" Binding="{Binding perday}" IsReadOnly="True" Width="Auto"/>
-                        <DataGridTextColumn Header="Other" Binding="{Binding other}" IsReadOnly="True" Width="Auto"/>
+                        <DataGridTextColumn Header="Other Description" Binding="{Binding otherDescription}" IsReadOnly="True" Width="Auto"/>
+                        <DataGridTextColumn Header="Other Amount" Binding="{Binding otherFee}" IsReadOnly="True" Width="Auto"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
             <Grid Grid.Column="1" Background="White" Margin="10">
                 <StackPanel Margin="10" HorizontalAlignment="Left">
                     <TextBlock Text="Expenses"/>
-                    <TextBox Name="textbox_description" materialDesign:HintAssist.Hint="Description" Width="150" HorizontalAlignment="Left" materialDesign:HintAssist.IsFloating="True" Foreground="Black" TextWrapping="Wrap" PreviewTextInput="NumberValidationTextBox" />
+                    <TextBox Name="textbox_description" materialDesign:HintAssist.Hint="Description" Width="150" HorizontalAlignment="Left" materialDesign:HintAssist.IsFloating="True" Foreground="Black" TextWrapping="Wrap" />
                     <TextBox Name="textbox_fee" materialDesign:HintAssist.Hint="Fee" Width="150" HorizontalAlignment="Left" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" PreviewTextInput="NumberValidationTextBox"/>
                  </StackPanel>
                 <DataGrid Name="DataGrid_expenses" Margin="10" HorizontalAlignment="Right" Width="300" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="DataGrid_expenses_SelectionChanged">
@@ -89,17 +91,7 @@
             </Grid>
             <Grid Grid.Column="2" Background="White" Margin="10">
                 <StackPanel Margin="10">
-                    <TextBlock Name="txtblock_totalexpenses" Text="Total Expenses : " Margin="5,5,5,0"/>
-                    <TextBlock Name="txtblock_totalcommision" Text="Total Commission : " Margin="5,5,5,0"/>
-                    <TextBlock Name="txtblock_totalperday" Text="Total Per Day : " Margin="5,5,5,0"/>
-                    <TextBlock Name="txtblock_sumecp" Text="Sum of ECP : " Margin="5,5,5,0"/>
-                    <TextBlock Name="txtblock_totalgross" Text="Total Gross : " Margin="5,25,5,0"/>
-                    <TextBlock Name="txtblock_sumecp2" Text="Sum of ECP : " Margin="5,5,5,0"/>
-                    <TextBlock Name="txtblock_deff" Text="Difference of Gross and ECP : " Margin="5,5,5,0"/>
-
-                    <TextBlock Name="txtblock_deff2" Text="Difference of Gross and ECP : " Margin="5,25,5,0"/>
-                    <TextBlock Name="txtblock_totalother" Text="Total Other : "  Margin="5,5,5,0" />
-                    <TextBlock Name="txtblock_totalincome" Text="Total Average : " Margin="5,25,5,0" />
+                    <RichTextBox Name="richbox_computation" IsEnabled="False"/>
                 </StackPanel>
             </Grid>
         </Grid>
